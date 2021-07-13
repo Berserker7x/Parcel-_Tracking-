@@ -7,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'ModelPage.dart';
 import 'package:page_view_indicator/page_view_indicator.dart';
 
+
 class onHomeBoarding extends StatefulWidget {
   const onHomeBoarding({Key key}) : super(key: key);
 
@@ -74,6 +75,7 @@ class _onHomeBoardingState extends State<onHomeBoarding> {
                       ),
                         textAlign: TextAlign.center,
 
+
                       ),
 
                       Padding(
@@ -131,7 +133,7 @@ class _onHomeBoardingState extends State<onHomeBoarding> {
 
 
                        Navigator.push(context, MaterialPageRoute(builder: (context){
-                        return HomeScreen();
+                        return  LoginScreen();
                         //update seen
                          _updateSeen();
                        }));

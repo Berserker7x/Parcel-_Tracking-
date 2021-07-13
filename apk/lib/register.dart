@@ -1,17 +1,15 @@
-import 'package:apk/Screen/Dashboard.dart';
+import 'package:apk/Screen/HomeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-import '../register.dart';
-
-class LoginScreen extends StatefulWidget{
+class RegisterScreen extends StatefulWidget{
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _RegisterScreenState createState() => _RegisterScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
-
+class _RegisterScreenState extends State<RegisterScreen> {
   void initState()
   {
     super.initState();
@@ -40,25 +38,27 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.orange,
-
-        title: Text('Login  '),
-          centerTitle: true
-
+        title: Text('Register New Account'),
+        centerTitle: true,
       ),
       body: Container(
+
+
         padding: EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            color: const Color(0xff7c94b6),
-            image: DecorationImage(
-                colorFilter:ColorFilter.mode(Colors.black.withOpacity(0.8),
-                    BlendMode.dstATop),
-                image: ExactAssetImage("assets/images/bariddd.jpg"),
-                fit: BoxFit.cover),
-          ),
+
+
+        decoration: BoxDecoration(
+         color: const Color(0xff7c94b6),
+         image: DecorationImage(
+         colorFilter:ColorFilter.mode(Colors.black.withOpacity(0.8),
+           BlendMode.dstATop),
+           image: ExactAssetImage("assets/images/bariddd.jpg"),
+            fit: BoxFit.cover),
+    ),
 
         child: Form(
-            key: _formkey,
 
+            key: _formkey,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -91,51 +91,35 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(
                   height: 100,
                 ),
-
                 RaisedButton(
                   color: Colors.orange,
-                  child: Text('Login Here',style: TextStyle(color: Colors.white),),
+                  child: Text('Register New Account',style: TextStyle(color: Colors.white),),
                   onPressed: () async {
-                    if(_formkey.currentState.validate()){
+                    if (_formkey.currentState.validate()) {
                       try {
                         //Create Get Firebase Auth User
                         await FirebaseAuth.instance
-                            . signInWithEmailAndPassword(
+                            .createUserWithEmailAndPassword(
                             email: _emailcontroller.text,
                             password: _passwordcontroller.text);
+
                         Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => DashBoard()),
-                    );
-                   } on FirebaseAuthException catch (error) {
-                           _showDialog(error.message);
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => LoginScreen()),
+                        );
+                      } on FirebaseAuthException catch (error) {
+                        _showDialog(error.message);
                       }
-    }
-
-
-    }
-
-
-
-
-
+                    }
+                  }
                 ),
-                RaisedButton(
-                  color: Colors.orange,
-                  child: Text('Register Here',style: TextStyle(color: Colors.white),),
-                  onPressed: () async {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterScreen() ) );
-                  },
-                ),
-
-
-
               ],
             )
         ),
       ),
     );
+
   }
   void _showDialog(String text) {
     // flutter defined function
@@ -159,5 +143,6 @@ class _LoginScreenState extends State<LoginScreen> {
       },
     );
   }
+
 
 }
