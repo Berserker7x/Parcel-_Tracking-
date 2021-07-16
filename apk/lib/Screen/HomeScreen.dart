@@ -1,6 +1,16 @@
+
+import 'dart:async';
+
 import 'package:apk/Screen/Dashboard.dart';
+import 'package:apk/Screen/map.dart';
+
+
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:flutter_signin_button/flutter_signin_button.dart';
+
 
 
 import '../register.dart';
@@ -12,11 +22,11 @@ class LoginScreen extends StatefulWidget{
 
 class _LoginScreenState extends State<LoginScreen> {
 
+
   void initState()
   {
     super.initState();
   }
-
 
   final _formkey = GlobalKey<FormState>();
 
@@ -34,8 +44,10 @@ class _LoginScreenState extends State<LoginScreen> {
     super.dispose();
   }
 
+
   @override
   Widget build(BuildContext context) {
+
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
@@ -128,6 +140,29 @@ class _LoginScreenState extends State<LoginScreen> {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterScreen() ) );
                   },
                 ),
+                SignInButton(
+                  Buttons.Google,
+                  text: "Sign up with Google",
+
+                     onPressed: () {
+
+
+
+                       Navigator.push(context, MaterialPageRoute(builder: (context) => ToMap() ) );
+
+
+
+                     },
+
+
+
+
+
+
+
+
+
+                )
 
 
 
