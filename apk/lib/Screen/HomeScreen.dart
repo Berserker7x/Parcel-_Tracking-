@@ -144,15 +144,21 @@ class _LoginScreenState extends State<LoginScreen> {
                   Buttons.Google,
                   text: "Sign up with Google",
 
-                     onPressed: () {
+                  onPressed: ()async{
+                   final GoogleSignInAccount googleUser = await GoogleSignIn().signIn();
+                   final GoogleSignInAuthentication googleAuth = await googleUser.authentication ;
+                    final GoogleAuthCredential credential=GoogleAuthProvider.credential(
+                     accessToken: googleAuth.accessToken,
+                     idToken: googleAuth.idToken
 
-
-
-                       Navigator.push(context, MaterialPageRoute(builder: (context) => ToMap() ) );
-
-
+                        );
+                    await FirebaseAuth.instance.signInWithCredential(credential);
 
                      },
+
+
+
+
 
 
 
