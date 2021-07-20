@@ -70,6 +70,9 @@ flutter:
      - assets/images/amana.jpg
      - assets/images/track.jpg
      - assets/images/car_icon.png
+     - assets/json/light.json
+     - assets/json/night.json
+     - assets/images/auto.png
 
      - assets/images/bariddd.jpg
 

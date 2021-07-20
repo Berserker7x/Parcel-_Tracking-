@@ -52,12 +52,16 @@ static  final CameraPosition _kGooglePlex = CameraPosition(
   Widget build(BuildContext context) {
       return Scaffold(
         body: GoogleMap(
+            zoomGesturesEnabled: true,
+
+
+
           mapType: MapType.normal,
 
           initialCameraPosition:_kGooglePlex,
-          markers: Set.of((marker!=null)?[marker]:[]),
-          circles: Set.of((circle!=null)?[circle]:[]),
 
+          markers: Set.of((marker != null) ? [marker] : []),
+          circles: Set.of((circle != null) ? [circle] : []),
 
         onMapCreated: (GoogleMapController controller){
            _controller=controller;
@@ -65,12 +69,14 @@ static  final CameraPosition _kGooglePlex = CameraPosition(
 
 
         ),
+
+
     floatingActionButton: FloatingActionButton(
     child: Icon(Icons.location_searching),
-    onPressed: (){
+     onPressed: (){
       getCurentLocation();
     },
-    ),
+     ),
 
 
     );
@@ -162,7 +168,7 @@ static  final CameraPosition _kGooglePlex = CameraPosition(
          bearing:192.8334901395799,
          target:LatLng(newLocalData.latitude,newLocalData.longitude),
          tilt:0,
-         zoom:18.0)));
+         zoom:14.4746)));
        updateMarkerAndcircles(newLocalData, imageData);
 
         }

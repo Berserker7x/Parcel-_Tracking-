@@ -76,6 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 TextFormField(
+                  style: TextStyle(color: Colors.white),
                   controller: _emailcontroller,
                   decoration: InputDecoration(
                     hintText: 'Email',
@@ -90,6 +91,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 20,
                 ),
                 TextFormField(
+                  style: TextStyle(color: Colors.white),
                   controller: _passwordcontroller,
                   decoration: InputDecoration(
                     hintText: 'Password',

@@ -1,9 +1,11 @@
 import 'package:apk/Screen/HomeScreen.dart';
+import 'package:apk/Screen/trackuser.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../register.dart';
 import 'map.dart';
+import 'mapBaridzone.dart';
 class DashBoard extends StatefulWidget {
   const DashBoard({Key  key}) : super(key: key);
 
@@ -81,12 +83,17 @@ class _DashBoardState extends State<DashBoard> {
       RaisedButton(
         color: Colors.orange,
         child: Text('Track yourself',style: TextStyle(color: Colors.white),),
-          onPressed: (){}
+          onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context) =>Trackuser() ) );
+
+          }
 
       ),   RaisedButton(
         color: Colors.orange,
         child: Text('Track Barid centers near your zone  ',style: TextStyle(color: Colors.white),),
-          onPressed: (){}
+          onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context) =>MapZone() ) );
+          }
 
       ),
 

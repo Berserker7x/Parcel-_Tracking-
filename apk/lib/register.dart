@@ -65,9 +65,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 TextFormField(
+                  style: TextStyle(color: Colors.white),
                   controller: _emailcontroller,
                   decoration: InputDecoration(
+
                     hintText: 'Email',
+
                   ),
                   validator: (value){
                     if(value.isEmpty){
@@ -79,6 +82,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   height: 20,
                 ),
                 TextFormField(
+                  style: TextStyle(color: Colors.white),
                   controller: _passwordcontroller,
                   decoration: InputDecoration(
                     hintText: 'Password',

@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'Screen/HomeScreen.dart';
 
@@ -42,9 +44,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-     return MaterialApp(
-       debugShowCheckedModeBanner: false,
-       home:this._screen ,
+
+      return MaterialApp(
+         debugShowCheckedModeBanner: false,
+         home:this._screen ,
+
      );
   }
 
