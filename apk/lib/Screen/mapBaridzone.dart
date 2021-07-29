@@ -1,5 +1,7 @@
+import 'package:apk/block/apkBlck.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:provider/provider.dart';
 
 
 class MapZone extends StatefulWidget {
@@ -10,8 +12,10 @@ class MapZone extends StatefulWidget {
 }
 
 class _MapZoneState extends State<MapZone> {
+
   @override
   Widget build(BuildContext context) {
+    final applicationbloc=Provider.of<Applicationbloc>(context);
     return Scaffold(
       body:ListView(
         children: [
@@ -24,8 +28,10 @@ class _MapZoneState extends State<MapZone> {
               mapType: MapType.normal,
               myLocationEnabled: true,
               initialCameraPosition: CameraPosition(
-                target: LatLng(33.351177, -7.577820)
+                target: LatLng(applicationbloc.currentLocation.latitude, applicationbloc.currentLocation.longitude),
+                zoom:14
               ),
+
 
             )
           )

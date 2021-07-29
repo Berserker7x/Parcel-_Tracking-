@@ -23,13 +23,13 @@ class _onHomeBoardingState extends State<onHomeBoarding> {
 
   void _addPages() {
     pages.add(PageModel(
-        'welcome', 'Morocco Post Tracking Consignments by Phone ',
+        'Bienvenue ', 'Maroc Post Suivi des envois par téléphone  ',
         MyFlutterApp.barid, 'assets/images/dog.png'));
     pages.add(PageModel('Amanaty',
-        'Amana Messagerie Nationale is the service ensuring the collection, transport and delivery of parcels  anywhere in Morocco ',
+        'Amana Messagerie Nationale est le service assurant la collecte, le transport et la livraison des colis partout au Maroc',
         MyFlutterApp.amana, 'assets/images/amana.jpg'));
     pages.add(PageModel(
-        'Why ?', 'So stay connected with your parcel and keep waiting ',
+        'Pourquoi ?', ' restez connecté avec votre colis et continuez d attendre  ',
         MyFlutterApp.map, 'assets/images/track.jpg'));
   }
 
@@ -125,7 +125,7 @@ class _onHomeBoardingState extends State<onHomeBoarding> {
               child: RaisedButton(
                 color: Colors.yellow,
 
-                child: Text('GET STARTED',
+                child: Text('COMMENCER',
                   style: TextStyle(
                       color: Colors.white, fontSize: 16, letterSpacing: 1),
                 ),

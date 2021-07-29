@@ -53,7 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
       appBar: AppBar(
         backgroundColor: Colors.orange,
 
-        title: Text('Login  '),
+        title: Text('Connexion  '),
           centerTitle: true
 
       ),
@@ -72,6 +72,7 @@ class _LoginScreenState extends State<LoginScreen> {
             key: _formkey,
 
             child: Column(
+
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
@@ -83,7 +84,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   validator: (value){
                     if(value.isEmpty){
-                      return 'Please Fill Email Input';
+                      return 'Veuillez remplir la saisie de l e-mail ';
                     }
                   },
                 ),
@@ -94,11 +95,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   style: TextStyle(color: Colors.white),
                   controller: _passwordcontroller,
                   decoration: InputDecoration(
-                    hintText: 'Password',
+                    hintText: 'mot de passe ',
                   ),
                   validator: (value){
                     if(value.isEmpty){
-                      return 'Please Fill Password Input';
+                      return ' Veuillez remplir la saisie du mot de passe ';
                     }
                   },
                 ),
@@ -108,7 +109,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 RaisedButton(
                   color: Colors.orange,
-                  child: Text('Login Here',style: TextStyle(color: Colors.white),),
+                  child: Text(' Connectez-vous ici ',style: TextStyle(color: Colors.white),),
                   onPressed: () async {
                     if(_formkey.currentState.validate()){
                       try {
@@ -117,6 +118,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             . signInWithEmailAndPassword(
                             email: _emailcontroller.text,
                             password: _passwordcontroller.text);
+                        Navigator.of(context).popUntil((route) => route.isFirst);
                         Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
@@ -137,14 +139,16 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 RaisedButton(
                   color: Colors.orange,
-                  child: Text('Register Here',style: TextStyle(color: Colors.white),),
+                  child: Text('Inscrivez-vous ici ',style: TextStyle(color: Colors.white),),
                   onPressed: () async {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterScreen() ) );
                   },
                 ),
                 SignInButton(
+
+
                   Buttons.Google,
-                  text: "Sign up with Google",
+                  text: "sign Up with google",
 
                   onPressed: ()async{
                    final GoogleSignInAccount googleUser = await GoogleSignIn().signIn();
@@ -155,8 +159,10 @@ class _LoginScreenState extends State<LoginScreen> {
 
                         );
                     await FirebaseAuth.instance.signInWithCredential(credential);
+                   Navigator.push(context, MaterialPageRoute(builder: (context) => DashBoard() ) );
 
                      },
+
 
 
 
@@ -192,7 +198,7 @@ class _LoginScreenState extends State<LoginScreen> {
           actions: <Widget>[
             // usually buttons at the bottom of the dialog
             new FlatButton(
-              child: new Text("Close"),
+              child: new Text("Fermer"),
               onPressed: () {
                 Navigator.of(context).pop();
               },

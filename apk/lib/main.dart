@@ -9,6 +9,8 @@ import 'Screen/onHomeBoarding.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 
+import 'block/apkBlck.dart';
+
 
  //@dart=2.9
 
@@ -45,11 +47,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
 
-      return MaterialApp(
-         debugShowCheckedModeBanner: false,
-         home:this._screen ,
+      return ChangeNotifierProvider(
+        create: (context)=>Applicationbloc(),
+        child: MaterialApp(
+           debugShowCheckedModeBanner: false,
+           home:this._screen ,
 
-     );
+     ),
+      );
   }
 
 }

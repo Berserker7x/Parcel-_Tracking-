@@ -71,12 +71,29 @@ static  final CameraPosition _kGooglePlex = CameraPosition(
         ),
 
 
+
     floatingActionButton: FloatingActionButton(
+
+
+
     child: Icon(Icons.location_searching),
+
+
+
      onPressed: (){
       getCurentLocation();
     },
+
+
      ),
+    floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+    bottomNavigationBar: BottomAppBar(
+    child: Container(
+    height: 50.0,
+    ),
+    )
+
+
 
 
     );

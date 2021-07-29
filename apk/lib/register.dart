@@ -39,7 +39,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.orange,
-        title: Text('Register New Account'),
+        title: Text('Enregistrez un nouveau compte '),
         centerTitle: true,
       ),
       body: Container(
@@ -74,7 +74,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                   validator: (value){
                     if(value.isEmpty){
-                      return 'Please Fill Email Input';
+                      return 'Veuillez remplir la saisie de l e-mail ';
                     }
                   },
                 ),
@@ -85,11 +85,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   style: TextStyle(color: Colors.white),
                   controller: _passwordcontroller,
                   decoration: InputDecoration(
-                    hintText: 'Password',
+                    hintText: 'Mot de passe',
                   ),
                   validator: (value){
                     if(value.isEmpty){
-                      return 'Please Fill Password Input';
+                      return 'Veuillez remplir la saisie de mot de passe ';
                     }
                   },
                 ),
@@ -98,7 +98,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 RaisedButton(
                   color: Colors.orange,
-                  child: Text('Register New Account',style: TextStyle(color: Colors.white),),
+                  child: Text('Enregistrer un nouveau compte ',style: TextStyle(color: Colors.white),),
                   onPressed: () async {
                     if (_formkey.currentState.validate()) {
                       try {
@@ -138,7 +138,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           actions: <Widget>[
             // usually buttons at the bottom of the dialog
             new FlatButton(
-              child: new Text("Close"),
+              child: new Text("Fermer"),
               onPressed: () {
                 Navigator.of(context).pop();
               },

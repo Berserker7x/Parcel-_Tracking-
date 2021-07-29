@@ -28,7 +28,8 @@ class _DashBoardState extends State<DashBoard> {
 
             actions: <Widget>[
               RaisedButton(
-                  child: Text('Log out',
+
+                  child: Text('Se déconnecter ',
                       style: TextStyle(fontSize: 18, color: Colors.white)),
                   color: Colors.orange,
                   onPressed: () async {
