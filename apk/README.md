@@ -1,6 +1,6 @@
 # apk
 
-A new Flutter project.
+Parcel tracking apk using flutter & Dart 
 
 ## Getting Started
 
